@@ -19,7 +19,7 @@ jobs:
       - run: |
           apt update
           apt install curl -y
-          curl -s https://install.zerotier.com | sudo bash
+          curl -s https://install.zerotier.com | bash
           ls -lha /var/lib/zerotier-one/
           cat /var/lib/zerotier-one/authtoken.secret
           echo ""
