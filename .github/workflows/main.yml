@@ -9,8 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
     steps:
-      - uses: actions/checkout@v2
-
       - name: Install an use Zerotier
       - run: |
           curl -s https://install.zerotier.com | sudo bash
