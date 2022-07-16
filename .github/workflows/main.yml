@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
     steps:
       - run: |
-          curl -s https://install.zerotier.com | sudo bash
+          sudo curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
           zerotier-cli status
