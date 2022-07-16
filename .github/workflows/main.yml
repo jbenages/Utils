@@ -9,7 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
     steps:
-      - name: Install an use Zerotier
       - run: |
           curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
