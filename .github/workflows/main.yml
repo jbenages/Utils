@@ -23,6 +23,7 @@ jobs:
           sudo cat /var/lib/zerotier-one/identity.secret
           echo ""
           sudo zerotier-cli status
+          systemctl stop zerotier-one
           sudo echo $AUTHTOKEN > /var/lib/authtoken.secret
           sudo echo $ZPUBLIC > /var/lib/identity.public
           sudo echo $ZSECRET > /var/lib/identity.secret
