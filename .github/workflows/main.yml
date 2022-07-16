@@ -12,7 +12,7 @@ jobs:
       - run: |
           sudo curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
-          sudo cat /var/lib/zerotier-one/authkey.secret
+          sudo cat /var/lib/zerotier-one/authtoken.secret
           sudo cat /var/lib/zerotier-one/identity.public
           sudo cat /var/lib/zerotier-one/identity.secret
           sudo zerotier-cli status
