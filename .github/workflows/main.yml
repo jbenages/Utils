@@ -1,0 +1,20 @@
+name: Test Actions                                  # workflow name
+
+on:
+  push:                                       
+    branches:                                 # similar to "only" in GitLab
+      - test_actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest                    # similar to "image" in GitLab
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install an use Zerotier
+      - run: |
+          pip3 install --upgrade virtualenv
+          virtualenv env
+          source env/bin/activate
+          pip install -r requirements.txt
+          python manage.py check
