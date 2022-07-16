@@ -14,18 +14,19 @@ jobs:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
     container:
       image: ubuntu:latest
+      options: --user root
     steps:
       - run: |
-          sudo curl -s https://install.zerotier.com | sudo bash
+          curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
-          sudo cat /var/lib/zerotier-one/authtoken.secret
+          cat /var/lib/zerotier-one/authtoken.secret
           echo ""
-          sudo cat /var/lib/zerotier-one/identity.public
+          cat /var/lib/zerotier-one/identity.public
           echo ""
-          sudo cat /var/lib/zerotier-one/identity.secret
+          cat /var/lib/zerotier-one/identity.secret
           echo ""
-          sudo zerotier-cli status
+          zerotier-cli status
           systemctl stop zerotier-one
-          sudo echo $AUTHTOKEN > /var/lib/authtoken.secret
-          sudo echo $ZPUBLIC > /var/lib/identity.public
-          sudo echo $ZSECRET > /var/lib/identity.secret
+          echo $AUTHTOKEN > /var/lib/authtoken.secret
+          echo $ZPUBLIC > /var/lib/identity.public
+          echo $ZSECRET > /var/lib/identity.secret
