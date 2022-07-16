@@ -4,6 +4,8 @@ on:
   push:                                       
     branches:                                 # similar to "only" in GitLab
       - test_actions
+env:
+  TEST: monday
 
 jobs:
   build:
@@ -13,6 +15,10 @@ jobs:
           sudo curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
           sudo cat /var/lib/zerotier-one/authtoken.secret
+          echo ""
           sudo cat /var/lib/zerotier-one/identity.public
+          echo ""
           sudo cat /var/lib/zerotier-one/identity.secret
+          echo ""
           sudo zerotier-cli status
+          echo $TEST
