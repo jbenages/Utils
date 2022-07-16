@@ -5,7 +5,9 @@ on:
     branches:                                 # similar to "only" in GitLab
       - test_actions
 env:
-  TEST: monday
+  AUTHTOKEN: ${{ AUTHTOKEN }}
+  ZPUBLIC: ${{ ZPUBLIC }}
+  ZSECRET: ${{ ZSECRET }}
 
 jobs:
   build:
@@ -21,4 +23,6 @@ jobs:
           sudo cat /var/lib/zerotier-one/identity.secret
           echo ""
           sudo zerotier-cli status
-          echo $TEST
+          echo $AUTHTOKEN
+          echo $ZPUBLIC
+          echo $ZSECRET
