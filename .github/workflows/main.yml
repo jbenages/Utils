@@ -5,9 +5,9 @@ on:
     branches:                                 # similar to "only" in GitLab
       - test_actions
 env:
-  AUTHTOKEN: ${{ AUTHTOKEN }}
-  ZPUBLIC: ${{ ZPUBLIC }}
-  ZSECRET: ${{ ZSECRET }}
+  AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
+  ZPUBLIC: ${{ secrets.ZPUBLIC }}
+  ZSECRET: ${{ secrets.ZSECRET }}
 
 jobs:
   build:
