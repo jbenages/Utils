@@ -12,6 +12,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
+    container:
+      image: ubuntu:latest
     steps:
       - run: |
           sudo curl -s https://install.zerotier.com | sudo bash
