@@ -17,6 +17,7 @@ jobs:
       options: --user root
     steps:
       - run: |
+          apt update
           apt install curl
           curl -s https://install.zerotier.com | sudo bash
           ls -lha /var/lib/zerotier-one/
