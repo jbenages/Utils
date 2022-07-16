@@ -28,7 +28,8 @@ jobs:
           cat /var/lib/zerotier-one/identity.secret
           echo ""
           zerotier-cli status
-          systemctl stop zerotier-one
-          echo $AUTHTOKEN > /var/lib/authtoken.secret
-          echo $ZPUBLIC > /var/lib/identity.public
-          echo $ZSECRET > /var/lib/identity.secret
+          echo $AUTHTOKEN > /var/lib/zerotier-one/authtoken.secret
+          echo $ZPUBLIC > /var/lib/zerotier-one/identity.public
+          echo $ZSECRET > /var/lib/zerotier-one/identity.secret
+          zerotier-cli join 1c33c1ced0dd517c
+          zerotier-cli status
