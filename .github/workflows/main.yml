@@ -22,8 +22,9 @@ jobs:
           apt install gnupg curl -y
           curl -s https://install.zerotier.com | bash
           zerotier-cli status
-          echo $AUTHTOKEN > /var/lib/zerotier-one/authtoken.secret
-          echo $ZPUBLIC > /var/lib/zerotier-one/identity.public
-          echo $ZSECRET > /var/lib/zerotier-one/identity.secret
+          #echo $AUTHTOKEN > /var/lib/zerotier-one/authtoken.secret
+          #echo $ZPUBLIC > /var/lib/zerotier-one/identity.public
+          #echo $ZSECRET > /var/lib/zerotier-one/identity.secret
           #zerotier-cli join $ZNETWORK
+          sleep 5
           zerotier-cli status
