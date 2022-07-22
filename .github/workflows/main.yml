@@ -24,9 +24,9 @@ jobs:
           sudo zerotier-cli status
           sudo service zerotier-one stop
           sudo ls -lha /var/lib/zerotier-one/
-          sudo echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
-          sudo echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
-          sudo echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
+          sudo su zerotier-one -c echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
+          sudo su zerotier-one -c echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
+          sudo su zerotier-one -c echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
           sudo service zerotier-one start
           sudo sleep 1
           sudo zerotier-cli join $ZNETWORK
