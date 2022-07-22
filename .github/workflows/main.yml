@@ -22,10 +22,10 @@ jobs:
           apt install gnupg curl -y
           curl -s https://install.zerotier.com | bash
           zerotier-cli status
-          echo "qolrasv2b5ydy1g2xqtoylf8" > /var/lib/zerotier-one/authtoken.secret
-          echo "67403aa382:0:cbde12aafad6aa9fd87295f751e872805a66535a774f313b8967aa2badff4d617e30703aa50fee793cf39ccba906f7e16d83d5d75ef86614a1aa38211bfb45ab" > /var/lib/zerotier-one/identity.public
-          echo "67403aa382:0:cbde12aafad6aa9fd87295f751e872805a66535a774f313b8967aa2badff4d617e30703aa50fee793cf39ccba906f7e16d83d5d75ef86614a1aa38211bfb45ab:a419f29c737766ac00463e0b8dd07ce734be29494ff153ccaf2bee048e2ad72bfefc34f26f41dce1931d012bec5269cfadea02fbf2031918534cb0d22506ff10" > /var/lib/zerotier-one/identity.secret
+          echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
+          echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
+          echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
           service zerotier-one restart
           sleep 1
-          #zerotier-cli join 1c33c1ced0dd517c
+          #zerotier-cli join $ZNETWORK
           zerotier-cli status
