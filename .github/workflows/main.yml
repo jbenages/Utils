@@ -23,6 +23,7 @@ jobs:
           sudo curl -s https://install.zerotier.com | bash
           sudo zerotier-cli status
           sudo service zerotier-one stop
+          sudo ls -lha /var/lib/zerotier-one/
           sudo echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
           sudo echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
           sudo echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
