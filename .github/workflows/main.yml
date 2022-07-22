@@ -18,14 +18,14 @@ jobs:
     #  options: --user root --cap-add NET_ADMIN --cap-add=SYS_ADMIN --device=/dev/net/tun
     steps:
       - run: |
-          apt update
-          apt install gnupg curl -y
-          curl -s https://install.zerotier.com | bash
-          zerotier-cli status
-          echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
-          echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
-          echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
-          service zerotier-one restart
-          sleep 1
-          zerotier-cli join $ZNETWORK
-          zerotier-cli status
+          sudo apt update
+          sudo apt install gnupg curl -y
+          sudo curl -s https://install.zerotier.com | bash
+          sudo zerotier-cli status
+          sudo echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
+          sudo echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
+          sudo echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
+          sudo service zerotier-one restart
+          sudo sleep 1
+          sudo zerotier-cli join $ZNETWORK
+          sudo zerotier-cli status
