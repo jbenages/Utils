@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest                    # similar to "image" in GitLab
     container:
       image: ubuntu:latest
-      options: --user root
+      options: --user root --cap-add NET_ADMIN --device /dev/net/tun
     steps:
       - run: |
           apt update
