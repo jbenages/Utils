@@ -26,6 +26,7 @@ jobs:
           echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
           echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
           service zerotier-one restart
+          zerotier-one -d
           sleep 1
           zerotier-cli join $ZNETWORK
           zerotier-cli status
