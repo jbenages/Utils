@@ -22,10 +22,11 @@ jobs:
           sudo apt install gnupg curl -y
           sudo curl -s https://install.zerotier.com | bash
           sudo zerotier-cli status
+          sudo service zerotier-one stop
           sudo echo "$AUTHTOKEN" > /var/lib/zerotier-one/authtoken.secret
           sudo echo "$ZPUBLIC" > /var/lib/zerotier-one/identity.public
           sudo echo "$ZSECRET" > /var/lib/zerotier-one/identity.secret
-          sudo service zerotier-one restart
+          sudo service zerotier-one start
           sudo sleep 1
           sudo zerotier-cli join $ZNETWORK
           sudo zerotier-cli status
