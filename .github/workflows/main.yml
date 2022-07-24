@@ -19,5 +19,5 @@ jobs:
     steps:
       - run: docker container ls
       - run: docker run -d --name myzerotier --rm --cap-add NET_ADMIN -e ZEROTIER_IDENTITY_SECRET -e ZEROTIER_API_SECRET -e ZEROTIER_IDENTITY_PUBLIC --device /dev/net/tun zerotier/zerotier:latest $ZNETWORK
-      - run: sleep 10
+      - run: sleep 60
       - run: ping -c 10 192.168.194.1
