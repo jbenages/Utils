@@ -9,6 +9,9 @@ env:
   ZPUBLIC: ${{ secrets.ZPUBLIC }}
   ZSECRET: ${{ secrets.ZSECRET }}
   ZNETWORK: ${{ secrets.ZNETWORK }}
+  ZEROTIER_API_SECRET: ${{ secrets.AUTHTOKEN }}
+  ZEROTIER_IDENTITY_PUBLIC: ${{ secrets.ZPUBLIC }}
+  ZEROTIER_IDENTITY_SECRET: ${{ secrets.ZSECRET }}
 
 jobs:
   build:
@@ -19,6 +22,7 @@ jobs:
     steps:
       - run: |
           docker container ls
+          docker run --name myzerotier --rm --cap-add NET_ADMIN --device /dev/net/tun zerotier/zerotier:latest $ZNETWORK
           #sudo apt update
           #sudo apt install gnupg curl -y
           #sudo curl -s https://install.zerotier.com | bash
