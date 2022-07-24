@@ -22,7 +22,8 @@ jobs:
     steps:
       - run: |
           docker container ls
-          docker run --name myzerotier --rm --cap-add NET_ADMIN -e ZEROTIER_IDENTITY_SECRET -e ZEROTIER_API_SECRET -e ZEROTIER_IDENTITY_PUBLIC --device /dev/net/tun zerotier/zerotier:latest $ZNETWORK
+          docker run --name myzerotier -d --rm --cap-add NET_ADMIN -e ZEROTIER_IDENTITY_SECRET -e ZEROTIER_API_SECRET -e ZEROTIER_IDENTITY_PUBLIC --device /dev/net/tun zerotier/zerotier:latest $ZNETWORK
+          ping 192.168.194.1
           #sudo apt update
           #sudo apt install gnupg curl -y
           #sudo curl -s https://install.zerotier.com | bash
