@@ -2,7 +2,7 @@ name: Test Actions                                  # workflow name
 
 on:
   push:                                       
-    branches:                                 # similar to "only" in GitLab
+    branches:                                
       - test_actions
 env:
   AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
