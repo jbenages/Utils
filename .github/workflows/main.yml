@@ -1,6 +1,6 @@
 name: Test Actions                                  
 
-on: #Testt
+on: #Test
   push:                                       
     branches:                                
       - test_actions
